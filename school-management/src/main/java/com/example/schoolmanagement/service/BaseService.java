@@ -1,4 +1,4 @@
-package com.example.schoolmanagement.service.abstractt;
+package com.example.schoolmanagement.service;
 
 
 

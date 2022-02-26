@@ -2,7 +2,7 @@ package com.example.schoolmanagement.controller;
 
 
 import com.example.schoolmanagement.entity.Course;
-import com.example.schoolmanagement.service.abstractt.CourseService;
+import com.example.schoolmanagement.service.CourseService;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

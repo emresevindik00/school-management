@@ -1,8 +1,9 @@
-package com.example.schoolmanagement.service.concrete;
+package com.example.schoolmanagement.service;
 
 import com.example.schoolmanagement.entity.Course;
 import com.example.schoolmanagement.repository.CourseRepository;
-import com.example.schoolmanagement.service.abstractt.CourseService;
+import com.example.schoolmanagement.service.BaseService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,19 +12,14 @@ import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Service
-public class CourseManager implements CourseService {
+@RequiredArgsConstructor
+public class CourseService implements BaseService<Course> {
     private final CourseRepository courseRepository;
-
-    @Autowired
-    public CourseManager(CourseRepository courseRepository) {
-        this.courseRepository = courseRepository;
-    }
-
 
     @Override
     public List<Course> findAll() {
 
-        return (List) courseRepository.findAll();
+        return (List<Course>) courseRepository.findAll();
     }
 
     @Override
@@ -34,6 +30,7 @@ public class CourseManager implements CourseService {
 
     @Override
     public Course save(Course course) {
+
         if(courseRepository.existsById(course.getId())){
             throw new EntityExistsException("Course already exists");
         }
