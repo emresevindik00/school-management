@@ -9,5 +9,5 @@ import java.util.Optional;
 @Repository
 public interface CourseRepository extends CrudRepository<Course, Integer> {
     void deleteByName(String name);
-    Optional<Course> findCourseByName(String name);
+    Course findCourseByName(String name);
 }

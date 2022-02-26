@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.time.Year;
 import java.util.Calendar;
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class StudentService implements BaseService<Student>{
 
     @Override
     public Student save(Student student) {
-        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+        int currentYear = Year.now().getValue();
         int age = currentYear - student.getBirthDate().getYear();
 
         if(age < 18 || age > 45) {

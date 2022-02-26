@@ -53,13 +53,10 @@ public class CourseService implements BaseService<Course> {
 
     @Override
     public Course findByName(String name) {
-        return courseRepository.findCourseByName(name).orElseThrow(()-> new EntityNotFoundException("Course not found"));
+        return courseRepository.findCourseByName(name);
     }
 
     public void deleteByName(String name){
-        if(courseRepository.findCourseByName(name).isEmpty()){
-            throw new EntityNotFoundException("Course not found");
-        }
         courseRepository.deleteByName(name);
     }
 
